@@ -1,4 +1,4 @@
-require 'filename'
+require 'shellutils/filename'
 
 describe Filename do
 

@@ -1,4 +1,4 @@
-require 'progress'
+require 'shellutils/progress'
 
 describe Progress do
 
