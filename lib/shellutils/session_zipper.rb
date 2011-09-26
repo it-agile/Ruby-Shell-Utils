@@ -9,7 +9,7 @@ class SessionZipper
 	  FileUtils.rm archive, :force=>true
 
 	  Zip::ZipFile.open(archive, 'w') do |zipfile|
-	    Dir["#{path}/**/**"].reject{|f|f==archive}.each do |file|
+	    Dir["#{path}/**/{*,.*}"].reject{|f|f==archive}.each do |file|
 	      zipfile.add(file.sub(path+'/',''),file)
 	    end
 	  end
