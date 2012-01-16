@@ -40,7 +40,7 @@ class ShellWrapper
 		process = ShellProcess.new 
 	  redirect_stderr_to_stdout = "2>&1"
     spec_pipe = IO.popen("#{command} #{redirect_stderr_to_stdout}", "r")
-    process.output = spec_pipe.read MAX_STDOUT_LENGTH
+    process.output = spec_pipe.read
     spec_pipe.close
 		process.return_code = $?.exitstatus
     puts process.output unless process.output.nil?
@@ -154,7 +154,7 @@ class ShellWrapper
 
 	def mac?
 		platform = RUBY_PLATFORM.downcase
-		platform.include?("universal-darwin")
+		platform.include?("darwin")
 	end
 
 end
